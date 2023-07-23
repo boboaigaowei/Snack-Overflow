@@ -1,0 +1,19 @@
+#debug: true
+#
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  datasource:
+    url: jdbc:mysql://localhost:3306/snackOverflow
+    username: root
+    password: Bobo@123456
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: snackOverflow
+#logging:
+#  level:
+#    root: info
