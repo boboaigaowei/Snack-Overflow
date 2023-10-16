@@ -1,5 +1,6 @@
 package group.boboaigaowei.controller;
 
+import java.util.Enumeration;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +33,11 @@ public class UserController {
 	}
 	
 	@PostMapping("/testToken")
+	@SecurityRequirement(name = "Bearer Authentication") // Mapping 到 Swagger 設定驗證的名稱
 	@Operation(summary = "驗證 token", description = "登入後操作都需要驗證 token", security = @SecurityRequirement(name = "Bearer Authentication"))
 	public String testToken(HttpServletRequest request) throws Exception {
-		String token = request.getHeader("token");
-		System.out.println("token = " + token);
+		String token = request.getHeader("Authorization"); // 目前只能用 Authorization 的名字，用其他的不行
+		token = token.replace("Bearer", ""); // 因為從 Swagger 進來的 token 前會帶有 Bearer 字串
 		Map<String, String> map = jwtUtil.parseToken(token);
 		return map.get("account") + ": " + token;
 	}

@@ -17,7 +17,7 @@ import io.swagger.v3.oas.models.info.Info;
         name = "Bearer Authentication",
         type = SecuritySchemeType.HTTP,
         bearerFormat = "JWT",
-        scheme = "bearer"
+        scheme = "Bearer"
 )
 public class SwaggerConfig {
 	

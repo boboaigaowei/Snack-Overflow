@@ -18,8 +18,6 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class JwtAuthHandlerInterceptor implements HandlerInterceptor {
 
-//	private static Logger log = LoggerFactory.getLogger(JwtAuthHandlerInterceptor.class);
-	
 //	@Value("${token.refreshTime}")
 //	private Long refreshTime;
 

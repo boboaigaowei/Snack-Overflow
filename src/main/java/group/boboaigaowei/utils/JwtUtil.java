@@ -61,6 +61,7 @@ public class JwtUtil {
 	 * @throws Exception
 	 */
 	public Map<String, String> parseToken(String token) throws Exception {
+		System.out.println("=====>" + token);
 		Claims claims =  Jwts.parserBuilder()
 				.setSigningKey(generateKey()) // 注入要解密的密鑰
 				.build()
