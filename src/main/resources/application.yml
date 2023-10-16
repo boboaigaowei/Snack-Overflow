@@ -3,6 +3,31 @@ debug: false
 server:
   port: 8080
 
-spring:
-  profiles:
-    active: dev
+#spring:
+#  profiles:
+#    active: dev
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/linebot
+#      username: root
+#      password: root
+#      authentication-database: admin
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/
+    username: root
+    password: root
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 5
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        globally_quoted_identifiers: true
