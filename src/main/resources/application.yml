@@ -1,17 +1,19 @@
-debug: false
+logging:
+  level:
+    org.springframework.security: DEBUG
 
 server:
   port: 8080
 
-#spring:
-#  profiles:
-#    active: dev
-#  data:
-#    mongodb:
-#      uri: mongodb://localhost:27017/linebot
-#      username: root
-#      password: root
-#      authentication-database: admin
+spring:
+  profiles:
+    active: dev
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/linebot
+      username: root
+      password: root
+      authentication-database: admin
   datasource: 
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/
@@ -31,3 +33,14 @@ server:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         globally_quoted_identifiers: true
+  # Spring Security & OAuth
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: your-github-client-id
+            client-secret: your-github-client-secret
+          google:
+            client-id: your-google-client-id
+            client-secret: your-google-client-secret
